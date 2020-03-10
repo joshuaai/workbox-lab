@@ -13,21 +13,22 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-var el = document.body;
+const el = document.body
 
-function fadeIn(el) {
-  el.style.opacity = 0;
+const fadeIn = el => {
+    el.style.opacity = 0
 
-  var tick = function() {
-    el.style.opacity = +el.style.opacity + 0.01;
+    const tick = () => {
+        el.style.opacity = +el.style.opacity + 0.01
 
-    if (+el.style.opacity < 1) {
-      (window.requestAnimationFrame && requestAnimationFrame(tick)) ||
-        setTimeout(tick, 16);
+        if (+el.style.opacity < 1) {
+            window.requestAnimationFrame
+                ? requestAnimationFrame(tick)
+                : setTimeout(tick, 16)
+        }
     }
-  };
 
-  tick();
+    tick()
 }
 
-fadeIn(el);
+fadeIn(el)
